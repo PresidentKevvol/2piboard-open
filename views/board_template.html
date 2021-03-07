@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/universal.css">
+    <link rel="stylesheet" href="/css/board.css">
+    <script src="/js/csi.min.js"></script>
+    <script src="/js/board.js"></script>
+    <title>/{{.Url}} - {{.Title}}</title>
+    {{template "header_all"}}
+    <meta property="og:description" content="/{{.Url}} - {{.Title}}">
+  </head>
+  <body>
+    <!-- the hidden value stuffs -->
+    <div id="current-board" hidden="true">{{.Url}}</div>
+    <div id="element-templates" hidden="true">
+      <div class="post-reply">
+        <div class="reply-author"></div>
+        <div class="reply-time"></div>
+        <div class="reply-body"></div>
+      </div>
+    </div>
+    <a href="/"><div class="icon"></div></a>
+    <h1>{{.Title}}</h1>
+    <h2>/{{.Url}}</h2>
+
+    <div id='create-post' class="mid-section">
+      <div class="section-head">Make new post</div>
+      <input type="text" name="" value="" placeholder="Thread title" id="text-title"><br>
+      <textarea name="name" rows="8" placeholder="Body text" id="text-body"></textarea><br>
+
+      Tripcode (Leave blank to opt out)<br>
+      <input type="text" name="" value="" id="text-tripcode-un" placeholder="username"><input type="password" name="" value="" id="text-tripcode-pw" placeholder="password">
+
+      <br><br>
+      <button type="button" id="butn-post">Post</button>
+      <div id="status-message"></div>
+    </div>
+
+    <div id="board-posts">
+      {{range $post := .Posts}}
+      <div class="post-entry" pid="{{$post.PostId}}">
+        <div class="post-title">{{$post.Title}}</div>
+        <div class="post-tripcode">{{$post.Author}}</div>
+        <div class="post-time">{{$post.TimePosted}}</div>
+        <div class="post-body">{{$post.Body}}</div>
+        <div class="show-replies">+ view all replies</div>
+        <div class="post-replies">
+          <!--
+          {{range $reply := $post.Replies}}
+          <div class="post-reply">
+            <div class="reply-author">{{$reply.Author}}</div>
+            <div class="reply-time">{{$reply.TimePosted}}</div>
+            <div class="reply-body">{{$reply.Body}}</div>
+          </div>
+          {{end}}
+          -->
+        </div>
+        <div class="add-reply">add reply</div>
+        <div class="add-reply-element" style="display: none;">
+          <textarea class="reply-box" rows="4" placeholder="type your reply here"></textarea><br>
+          Tripcode (Leave blank to opt out)<br>
+          <input type="text" name="" value="" class="reply-tripcode-un" placeholder="username">
+          <input type="password" name="" value="" class="reply-tripcode-pw" placeholder="password"><br>
+          <button class="butn-reply">add reply</button>
+          <div class="reply-status-message"></div>
+        </div>
+      </div>
+      {{end}}
+    </div>
+    <div id="bottom">
+      Currently on page {{.CurrentPage}}<br>
+      Jump to page <input type="number" min="1" id="jump-page"> <button id="jump-butn">jump</button>
+    </div>
+
+    <div class="post-item"></div>
+
+    <div data-include="/footer"></div>
+  </body>
+</html>

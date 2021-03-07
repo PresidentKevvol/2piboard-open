@@ -1,0 +1,68 @@
+h1, h2 {
+  font-family: sans-serif;
+  text-align: center;
+  margin: 0;
+  font-weight: normal;
+  font-family: SourceSansPro;
+}
+
+h1 {
+  font-size: 3.6em;
+}
+
+div.mid-section {
+  width: 80vw;
+  padding: 0 10vw;
+}
+
+div.section-head {
+  background-color: #0a6334;
+  color: white;
+  font-size: 1.15rem;
+  padding: 2px;
+  padding-left: 0.9vw;
+}
+
+div#boards-catalog {
+  margin-top: 4em;
+}
+
+table#boards td, table#boards th {
+}
+
+table.list-table {
+  width: 100%;
+}
+table.list-table tr.head-row th {
+  border-bottom: 1px solid white;
+}
+table.list-table tr:nth-child(even) {
+  background-color: #323232;
+}
+
+
+th.threads-table-board {
+  width: 15%;
+}
+th.threads-table-title {
+  width: 50%;
+}
+th.threads-table-replies {
+  width: 15%;
+}
+th.threads-table-time {
+  width: 20%;
+}
+
+th.table-url {
+  width: 15%;
+}
+th.table-title {
+  width: 30%;
+}
+th.table-activity {
+  width: 10%;
+}
+th.table-latest {
+  width: 45%;
+}

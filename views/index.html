@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/universal.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="/js/csi.min.js"></script>
+    <title>2πBoard</title>
+    {{template "header_all"}}
+    <meta property="og:description" content="a homebrew message board made by The Hornet's Nest">
+  </head>
+  <body>
+    <h1>2πBoard</h1>
+    <h2>a homebrew message board made by <a href="https://www.hornetsnestguild.com/">The Hornet's Nest</a></h2>
+
+    <div id='boards-catalog' class="mid-section">
+      <div class="section-head">Discussion boards</div>
+        <table id="boards" class="list-table">
+          <tr class='head-row'>
+            <th class="table-url">url</th>
+            <th class="table-title">title</th>
+          </tr>
+          {{range $board := .Boards}}
+          <tr>
+            <td><a href="/board/{{$board.Url}}">/{{$board.Url}}</a></td>
+            <td>{{$board.Description}}</td>
+          </tr>
+          {{end}}
+        </table>
+    </div>
+
+    <div data-include="/footer"></div>
+  </body>
+</html>

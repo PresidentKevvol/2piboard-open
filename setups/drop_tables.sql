@@ -1,0 +1,1 @@
+DROP TABLE reply, post, tripcode, board;
