@@ -20,6 +20,10 @@ import (
 //template for the pages
 var ex, exerr = os.Executable()
 var workdir = filepath.Dir(ex)
+//for when the app is dockerized, prevent the strings for paths become like "//views/index.html"
+if workdir == "/" {
+  workdir = ""
+}
 var chat_template = template.Must(template.ParseFiles(workdir + "/views/index.html", workdir + "/views/board_template.html", workdir + "/views/footer.html", workdir + "/views/header_all.html"))
 
 //the handler for the index page
