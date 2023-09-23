@@ -20,7 +20,7 @@ import (
 //template for the pages
 var ex, exerr = os.Executable()
 
-func getWorkDir() {
+func getWorkDir() string {
   workdir := filepath.Dir(ex)
   //for when the app is dockerized, prevent the strings for paths become like "//views/index.html"
   if workdir == "/" {
